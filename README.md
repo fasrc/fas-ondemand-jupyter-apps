@@ -24,4 +24,30 @@ Workflows:
 1. **Docker build and push** (manual): This workflow can be triggered manually from the Github Actions UI to build the docker image for a specific app. This can be done any time, and it will automatically build and push to docker hub. 
 2. **Trigger docker build** (push event): This workflow is triggered automatically by a `push` to the repository, which simply identifies which `Dockerfile` changed and then dispatches to the **Docker build and push** workflow. Note that if the push has changed multiple docker files, only the first one will trigger a build. The rest will need to be dispatched manually.
 
+## Building and testing docker images
+
+To build and test a docker image locally:
+
+```
+$ export APP_NAME=fas-jupyter-demo
+$ cd apps/$APP_NAME
+$ docker build -t harvardat/$APP_NAME:latest .
+$ docker run --rm -p 8888:8888 harvardat/$APP_NAME:latest
+```
+
+To manually tag and push a docker image:
+
+```
+$ export GIT_COMMIT_HASH=$(git log -1 --format=%h)
+$ docker tag harvardat/$APP_NAME:latest harvardat/$APP_NAME:$GIT_COMMIT_HASH
+$ docker push harvardat/$APP_NAME:$GIT_COMMIT_HASH
+$ docker push harvardat/$APP_NAME:latest
+```
+
+To print a list of installed packages with conda or pip:
+
+```
+$ docker run --rm -it harvardat/$APP_NAME:latest /bin/bash -c "conda list"
+$ docker run --rm -it harvardat/$APP_NAME:latest /bin/bash -c "pip list"
+```
 
