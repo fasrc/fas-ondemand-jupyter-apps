@@ -9,11 +9,33 @@
                 "value": 2
             },
             "title": "Jupyter Notebook - General"
+        },
+        {
+            "app_name": "fas-jupyter-r",
+            "title": "Jupyter Notebook - R Kernel",
+            "docker_image": "jupyter/r-notebook",
+            "cpu": {
+                "value": 1
+            },
+            "memory": {
+                "value": 2
+            }
+        },
+        {
+            "app_name": "fas-jupyter-cs109a",
+            "title": "Jupyter Notebook - CS109a",
+            "docker_image": "harvardat/jupyter-cs109a-medium:8e619987",
+            "cpu": {
+                "value": 8
+            },
+            "memory": {
+                "value": 16
+            }
         }
     ],
     "base": {
         "app_type": "jupyter",
-        "docker_image": "harvardat/jupyter-general-small:440d315a",
+        "docker_image": "harvardat/jupyter-general-small:6f4208e2",
         "git_branch": "master",
         "git_dir": "fas-ondemand-jupyter-app",
         "git_url": "https://github.com/fasrc/fas-ondemand-jupyter-app.git"
