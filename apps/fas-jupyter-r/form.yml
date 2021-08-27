@@ -15,10 +15,10 @@ attributes:
     label: email address for status notification
     widget: text_field
   
-  custom_memory_per_node: 2
+  custom_memory_per_node: 4
   
   
-  custom_num_cores: 1
+  custom_num_cores: 2
   
   custom_num_gpus: 0 
   jupyter_version: jupyter_r-notebook.sif

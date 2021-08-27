@@ -3,10 +3,10 @@
         {
             "app_name": "fas-jupyter-general",
             "cpu": {
-                "value": 1
+                "value": 2
             },
             "memory": {
-                "value": 2
+                "value": 4
             },
             "title": "Jupyter Notebook - General"
         },
@@ -15,10 +15,10 @@
             "title": "Jupyter Notebook - R Kernel",
             "docker_image": "jupyter/r-notebook",
             "cpu": {
-                "value": 1
+                "value": 2
             },
             "memory": {
-                "value": 2
+                "value": 4
             }
         },
         {
