@@ -31,6 +31,17 @@
             "memory": {
                 "value": 16
             }
+        },
+        {
+            "app_name": "fas-jupyter-heb1410",
+            "title": "Jupyter Notebook - QIIME2",
+            "docker_image": "harvardat/jupyter-heb1410:latest",
+            "cpu": {
+                "value": 8
+            },
+            "memory": {
+                "value": 16
+            }
         }
     ],
     "base": {
