@@ -46,7 +46,7 @@
     ],
     "base": {
         "app_type": "jupyter",
-        "docker_image": "harvardat/jupyter-general-small:47a81351",
+        "docker_image": "harvardat/jupyter-general-small:e1eda52d",
         "git_branch": "master",
         "git_dir": "fas-ondemand-jupyter-app",
         "git_url": "https://github.com/fasrc/fas-ondemand-jupyter-app.git"
