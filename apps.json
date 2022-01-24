@@ -33,6 +33,17 @@
             }
         },
         {
+            "app_name": "fas-jupyter-cs109b",
+            "title": "Jupyter Notebook - CS109b",
+            "docker_image": "harvardat/jupyter-cs109b:latest",
+            "cpu": {
+                "value": 8
+            },
+            "memory": {
+                "value": 16
+            }
+        },
+        {
             "app_name": "fas-jupyter-heb1410",
             "title": "Jupyter Notebook - QIIME2",
             "docker_image": "harvardat/jupyter-heb1410:latest",
