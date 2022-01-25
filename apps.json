@@ -35,7 +35,7 @@
         {
             "app_name": "fas-jupyter-cs109b",
             "title": "Jupyter Notebook - CS109b",
-            "docker_image": "harvardat/jupyter-cs109b:latest",
+            "docker_image": "harvardat/fas-jupyter-cs109b:f3c56e70",
             "cpu": {
                 "value": 8
             },
