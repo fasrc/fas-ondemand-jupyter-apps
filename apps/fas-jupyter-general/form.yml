@@ -20,7 +20,7 @@ attributes:
   custom_num_cores: 2
   
   custom_num_gpus: 0 
-  jupyter_version: harvardat_jupyter-general-small_5f9ff6c2.sif
+  jupyter_version: harvardat_jupyter-general-small_a1a2b4ce.sif
   custom_reservation: null
   envscript: null
   bc_account:
