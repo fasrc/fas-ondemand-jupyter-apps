@@ -20,7 +20,7 @@ attributes:
   custom_num_cores: 2
   
   custom_num_gpus: 0 
-  jupyter_version: harvardat_fas-jupyter-physics15b_latest.sif
+  jupyter_version: harvardat_fas-jupyter-physics15b_9dba032f.sif
   custom_reservation: null
   envscript: null
   bc_account:

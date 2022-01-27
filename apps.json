@@ -57,7 +57,7 @@
         {
             "app_name": "fas-jupyter-physics15b",
             "title": "Jupyter Notebook - Physics 15b",
-            "docker_image": "harvardat/fas-jupyter-physics15b:latest",
+            "docker_image": "harvardat/fas-jupyter-physics15b:9dba032f",
             "cpu": {
                 "value": 2
             },
