@@ -74,6 +74,10 @@ EOF2
 
 
 cat >> $JOBROOT/jupyter.script.sh <<EOF3
+export JULIA_DEPOT_PATH="${HOME}/.julia"
+
+julia -e 'using Pkg; Pkg.add("IJulia")'
+
 jupyter notebook \
            --ip='0.0.0.0' \
            --port=${MY_JUP_PORT} \

@@ -1,5 +1,5 @@
 ---
-name: Jupyter Notebook - Physics 15b
+name: Jupyter Notebook - Julia Kernel
 cluster: "academic"
 attributes:
   modules: null
