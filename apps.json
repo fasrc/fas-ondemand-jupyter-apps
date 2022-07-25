@@ -13,7 +13,7 @@
         {
             "app_name": "fas-jupyter-r",
             "title": "Jupyter Notebook - R Kernel",
-            "docker_image": "jupyter/r-notebook",
+            "docker_image": "harvardat/fas-jupyter-r:latest",
             "cpu": {
                 "value": 2
             },
