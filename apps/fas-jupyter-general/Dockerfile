@@ -1,56 +1,82 @@
-FROM jupyter/minimal-notebook:notebook-6.4.7
+FROM jupyter/scipy-notebook:notebook-6.4.12
+# reference https://github.com/jupyter/docker-stacks/blob/main/scipy-notebook/Dockerfile
+# for libraries already installed via `mamba`
 
 USER root
 
 RUN apt-get -y update
-RUN apt-get -y install libgl1-mesa-glx
+RUN apt-get -y install \
+    gconf-service \
+    libgl1-mesa-glx \
+    libasound2 \
+    libatk1.0-0 \
+    libatk-bridge2.0-0 \
+    libc6 \
+    libcairo2 \
+    libcups2 \
+    libdbus-1-3 \
+    libexpat1 \
+    libfontconfig1 \
+    libgcc1 \
+    libgconf-2-4 \
+    libgdk-pixbuf-2.0-0 \
+    libglib2.0-0 \
+    libgtk-3-0 \
+    libnspr4 \
+    libpango-1.0-0 \
+    libpangocairo-1.0-0 \
+    libstdc++6 \
+    libx11-6 \
+    libx11-xcb1 \
+    libxcb1 \
+    libxcomposite1 \
+    libxcursor1 \
+    libxdamage1 \
+    libxext6 \
+    libxfixes3 \
+    libxi6 \
+    libxrandr2 \
+    libxrender1 \
+    libxss1 \
+    libxtst6 \
+    ca-certificates \
+    fonts-liberation \
+    libappindicator1 \
+    libnss3 \
+    lsb-release \
+    xdg-utils \
+    wget \
+    libcairo-gobject2 \
+    libxinerama1 \
+    libgtk2.0-0 \
+    libpangoft2-1.0-0 \
+    libthai0 \
+    libpixman-1-0 \
+    libxcb-render0 \
+    libharfbuzz0b \
+    libdatrie1 \
+    libgraphite2-3 \
+    libgbm1
 
-# Update conda
-RUN conda update --quiet --yes conda
+USER $NB_UID
 
-# Add extra conda channels
-RUN conda config --append channels conda-forge \
-    --append channels anaconda-fusion \
-    --append channels jmcmurray
+WORKDIR $HOME
 
-RUN conda install --quiet --yes \
-    'mkl-service' \
-    'cartopy' \
-    'gsw' \
-    'astropy' \
-    && \
-    conda clean --al -f -y
+# Install Python 3 packages using mamba, following convention from origin image
+# RUN mamba install --quiet --yes \
+#     'package-name'
 
+# Install packages that can only be installed via pip
 COPY requirements.txt .
 RUN pip install --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
 RUN rm requirements.txt
 
-# Activate ipywidgets extension in the environment that runs the notebook server, and do some clean-up
-RUN jupyter nbextension enable --py widgetsnbextension --sys-prefix && \
-    npm cache clean --force && \
-    rm -rf "/home/${NB_USER}/.cache/yarn" && \
-    rm -rf "/home/${NB_USER}/.node-gyp" && \
-    fix-permissions "${CONDA_DIR}" && \
-    fix-permissions "/home/${NB_USER}"
+# Set up to enable save as webpdf
+RUN pyppeteer-install
+COPY jupyter_nbconvert_config.py ./.jupyter/
+COPY jupyter_notebook_config.py ./.jupyter/
 
-# Install facets which does not have a pip or conda package at the moment
-WORKDIR /tmp
-RUN git clone https://github.com/PAIR-code/facets.git && \
-    jupyter nbextension install facets/facets-dist/ --sys-prefix && \
-    rm -rf /tmp/facets && \
-    fix-permissions "${CONDA_DIR}" && \
-    fix-permissions "/home/${NB_USER}"
-
-# Import matplotlib the first time to build the font cache.
-ENV XDG_CACHE_HOME="/home/${NB_USER}/.cache/"
-
-RUN MPLBACKEND=Agg python -c "import matplotlib.pyplot" && \
-    fix-permissions "/home/${NB_USER}"
-
-USER $NB_UID
-
+# Set workdir to home at the end of all tasks to ensure correct working dir
 WORKDIR $HOME
-
-# trigger workflow

@@ -3,32 +3,5 @@
 # 
 # 	docker run --rm -it jupyter/minimal-notebook:notebook-6.4.7 pip list --format=freeze > base_requirements.txt
 #
--c base_requirements.txt
-
-numpy
-pandas
-scikit-learn
-scikit-image
-opencv-python
-scipy
-matplotlib
-ipympl
-mpl_interactions
-ipython
-ipykernel
-astropy
-seaborn
-bokeh
-xlsxwriter
-openpyxl
-sympy
-networkx
-requests
-statsmodels
-pillow
-peakutils
-mne
-ecomplexity
-geopandas
-igraph
-dask[complete]
+otter-grader
+nbconvert[webpdf]
