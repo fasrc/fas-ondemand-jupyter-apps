@@ -1,3 +1,6 @@
 nbconvert==6.5.0
-pyppeteer==1.0.2
-jupyter-client==7.3.4
+#pyppeteer==1.0.2
+nbconvert[webpdf]
+pyppeteer
+pypandoc
+notebook-as-pdf
