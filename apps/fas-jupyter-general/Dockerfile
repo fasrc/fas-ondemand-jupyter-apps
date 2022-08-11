@@ -80,3 +80,4 @@ COPY jupyter_notebook_config.py ./.jupyter/
 
 # Set workdir to home at the end of all tasks to ensure correct working dir
 WORKDIR $HOME
+

@@ -75,3 +75,4 @@ COPY jupyter_nbconvert_config.py ./.jupyter/
 COPY jupyter_notebook_config.py ./.jupyter/
 
 WORKDIR $HOME
+
