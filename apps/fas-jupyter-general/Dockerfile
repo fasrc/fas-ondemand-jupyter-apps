@@ -1,9 +1,6 @@
-FROM jupyter/r-notebook:r-4.1.3
-
-# For details on the base image:
-#   https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-r-notebook
-#
-# Install additional packages here.
+FROM jupyter/scipy-notebook:notebook-6.4.12
+# reference https://github.com/jupyter/docker-stacks/blob/main/scipy-notebook/Dockerfile
+# for libraries already installed via `mamba` 
 
 USER root
 
@@ -59,19 +56,27 @@ RUN apt-get -y install \
     libharfbuzz0b \
     libdatrie1 \
     libgraphite2-3 \
-    libgbm1 \
-    gnupg
+    libgbm1
 
+USER $NB_UID
+
+WORKDIR $HOME
+
+# Install Python 3 packages using mamba, following convention from origin image
+# RUN mamba install --quiet --yes \
+#     'package-name'
+
+# Install packages that can only be installed via pip
 COPY requirements.txt .
 RUN pip install --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
 RUN rm requirements.txt
 
-USER $NB_UID
-
+# Set up to enable save as webpdf
 RUN pyppeteer-install
 COPY jupyter_nbconvert_config.py ./.jupyter/
 COPY jupyter_notebook_config.py ./.jupyter/
 
+# Set workdir to home at the end of all tasks to ensure correct working dir
 WORKDIR $HOME
