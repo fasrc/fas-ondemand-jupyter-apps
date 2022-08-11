@@ -8,7 +8,7 @@ This image is based on [jupyter/r-notebook](https://hub.docker.com/r/jupyter/r-n
 
 ## Installed packages
 
-There currently aren't any additional R packages installed beyond what's included in the initial image. The `packages.txt` file contains a list of the packages installed along with their versions for reference when checking for new dependencies in new OnDemand requests.
+There currently aren't any additional R packages installed beyond what's included in the initial image. The `packages.txt` file contains a list of the packages installed along with their versions for reference when checking for new dependencies in new OnDemand requests. It is created by running `docker run --rm <image name> Rscript -e "as.data.frame(installed.packages()[,c(1,3)])" > packages.txt` after building a new image locally.
 
 ## Notebook config files
 
