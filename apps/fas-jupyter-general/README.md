@@ -20,3 +20,11 @@ The two config files in this folder are copied into the `.jupyter` folder in the
 
 * [Notebook config options](https://jupyter-notebook.readthedocs.io/en/stable/config.html)
 * [Nbconvert config options](https://nbconvert.readthedocs.io/en/latest/config_options.html)
+
+## Building locally
+
+To build the image, you can run this command from this repo
+- `docker build -t fas-jupyter-general .`
+
+After it's been built, this command will start it for testing
+- `docker run -it -p 8888:8888 -e DOCKER_STACKS_JUPYTER_CMD=notebook fas-jupyter-general`

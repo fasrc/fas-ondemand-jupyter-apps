@@ -5,3 +5,6 @@
 #
 otter-grader
 nbconvert[webpdf]
+cirq
+qiskit
+qutip
