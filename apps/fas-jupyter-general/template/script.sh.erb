@@ -74,6 +74,9 @@ EOF2
 
 
 cat >> $JOBROOT/jupyter.script.sh <<EOF3
+
+pyppeteer-install
+
 jupyter notebook \
            --ip='0.0.0.0' \
            --port=${MY_JUP_PORT} \
