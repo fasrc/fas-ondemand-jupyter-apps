@@ -12,7 +12,7 @@ Dependencies are specified in `requirements.in` and then compiled with `pip-comp
 
 A full list of the Python libraries available can be found in `environment.yml` in this folder. It has a list of everything installed on this image, regardless of how it was installed (in theory, I'm sure it's possible to go around conda and pip).
 
-When developing, generate a new `environment.yml` file locally from the new docker image with `docker run --rm <image name> conda env export -n base > apps/fas-jupyter-general/environment.yml` from this directory.
+When developing, generate a new `environment.yml` file locally from the new docker image with `docker run --rm <image name> conda env export -n base > environment.yml` from this directory.
 
 ## Notebook config files
 
