@@ -3,8 +3,15 @@
 # 
 # 	docker run --rm -it jupyter/minimal-notebook:notebook-6.4.7 pip list --format=freeze > base_requirements.txt
 #
+
+# Include these packages regardless of requests
 otter-grader
 nbconvert[webpdf]
-cirq
-qiskit
-qutip
+
+# Add requested packages here
+# Comment with Canvas course ID (canvas.harvard.edu/courses/<course id>)
+cirq    # 111677
+qiskit  # 111677
+qutip   # 111677
+mne         # 105807
+PeakUtils   # 105807

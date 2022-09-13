@@ -12,7 +12,7 @@ Dependencies are specified in `requirements.in` and then compiled with `pip-comp
 
 A full list of the Python libraries available can be found in `environment.yml` in this folder. It has a list of everything installed on this image, regardless of how it was installed (in theory, I'm sure it's possible to go around conda and pip).
 
-When developing, generate a new `environment.yml` file locally from the new docker image with `docker run --rm <image name> conda env export -n base > apps/fas-jupyter-general/environment.yml` from this directory.
+When developing, generate a new `environment.yml` file locally from the new docker image with `docker run --rm <image name> conda env export -n base > environment.yml` from this directory.
 
 ## Notebook config files
 
@@ -28,3 +28,31 @@ To build the image, you can run this command from this repo
 
 After it's been built, this command will start it for testing
 - `docker run -it -p 8888:8888 -e DOCKER_STACKS_JUPYTER_CMD=notebook fas-jupyter-general`
+
+## OnDemand Configuration
+
+The `form.yml` file needs to be configured so that the `jupyter_version` references the correct image, keeping in mind that the docker image must be pulled by academic cluster staff, converted to the [Singularity](https://docs.sylabs.io/guides/3.0/user-guide/quick_start.html) image format, and made available to OnDemand in order to use it.
+
+Here's the change that needs to be made in `form.yml`:
+
+```yaml
+---
+title: Jupyter Notebook - General
+cluster: "academic"
+attributes:
+  rstudio_version: "imagename.sif"  # <-- Change Me
+```
+
+The naming convention we've adopted for converting docker images to singularity files (`.sif`) is as follows:
+
+```
+user/repo:tag -> user_repo_tag.sif
+```
+
+For example:
+
+```
+harvardat/fas-jupyter-general:sha-7b5663a -> harvardat_fas-jupyter-general_sha-7b5663a.sif
+```
+
+Note that the `form.yml` can be updated before the image is pulled to the cluster, but just be aware that the server won't launch successfully until the image is actually available in the cluster.
