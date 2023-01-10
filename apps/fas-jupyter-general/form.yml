@@ -20,7 +20,7 @@ attributes:
   custom_num_cores: 2
   
   custom_num_gpus: 0 
-  jupyter_version: harvardat_fas-jupyter-general_sha-5d602cc.sif
+  jupyter_version: huitacademictechnology_fas-jupyter-general_sha-3eb8c9b.sif
   custom_reservation: null
   envscript: null
   bc_account:
