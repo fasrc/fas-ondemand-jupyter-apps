@@ -10,8 +10,4 @@ nbconvert[webpdf]
 
 # Add requested packages here
 # Comment with Canvas course ID (canvas.harvard.edu/courses/<course id>)
-cirq    # 111677
-qiskit  # 111677
-qutip   # 111677
-mne         # 105807
-PeakUtils   # 105807
+
