@@ -37,3 +37,4 @@ dependencies:
         - tensorflow_datasets
         - tensorflow_hub
         - tf_keras_vis
+        - nbconvert[webpdf]
