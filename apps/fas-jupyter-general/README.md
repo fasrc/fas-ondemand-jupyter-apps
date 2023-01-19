@@ -14,6 +14,9 @@ A full list of the Python libraries available can be found in `environment.yml` 
 
 When developing, generate a new `environment.yml` file locally from the new docker image with `docker run --rm <image name> conda env export -n base > environment.yml` from this directory.
 
+### Note - Pip incompatible packages installation
+- Packages can be installed via Dockerfile using mamba, this will install the package directly into the conda environment. Additionally you can generate an updated `environment.yml` once the packages are installed via the command provided above.
+
 ## Notebook config files
 
 The two config files in this folder are copied into the `.jupyter` folder in the home directory for the jupyter notebook user. Currently they just have a setting to disable chromium sandboxing, used in downloading PDFs via HTML in Jupyter Notebook, but other modifications to notebook and/or nbconvert behavior can be added there.

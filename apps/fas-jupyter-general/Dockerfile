@@ -66,6 +66,10 @@ WORKDIR $HOME
 # RUN mamba install --quiet --yes \
 #     'package-name'
 
+# EPSCI - Canvas course ID: (https://canvas.harvard.edu/courses/110633)
+RUN mamba install --quiet --yes \
+    'cartopy'
+
 # Install packages that can only be installed via pip
 COPY requirements.txt .
 RUN pip install --upgrade pip && \
