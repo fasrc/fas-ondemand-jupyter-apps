@@ -1,4 +1,4 @@
-FROM jupyter/tensorflow-notebook
+FROM jupyter/tensorflow-notebook:tensorflow-2.11.0
 
 # Eng Sci 201 requested by Demba Ba and the jupyter/tensorflow-notebook
 # comes with scipy, numpy, matplotlib, pandas, sickit-learn, tensorflow, keras already, so we're just deriving from that base image.
