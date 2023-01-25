@@ -64,6 +64,17 @@
             "memory": {
                 "value": 4
             }
+        },
+        {
+            "app_name": "fas-jupyter-engsci201",
+            "title": "Jupyter Notebook - Eng Sci 201",
+            "docker_image": "huitacademictechnology/fas-jupyter-engsci201:sha-3e5a86a",
+            "cpu": {
+                "value": 8
+            },
+            "memory": {
+                "value": 16
+            }
         }
     ],
     "base": {
