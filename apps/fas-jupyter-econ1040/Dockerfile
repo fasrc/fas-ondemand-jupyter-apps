@@ -14,5 +14,10 @@ FROM jupyter/minimal-notebook:notebook-6.5.1
 COPY --from=build /usr/local/bin/fa /usr/local/bin
 COPY --from=build /usr/local/bin/tournament /usr/local/bin
 
+USER $NB_UID
+WORKDIR $HOME
+COPY --chown=$NB_UID:$NB_GID src/automata/* .
+COPY --chown=$NB_UID:$NB_GID src/axelrod.prefs .
+
 # Set workdir to home at the end of all tasks to ensure correct working dir
 WORKDIR $HOME
