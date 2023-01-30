@@ -20,7 +20,7 @@ attributes:
   custom_num_cores: 2
 
   custom_num_gpus: 0
-  jupyter_version: replaceme.sif
+  jupyter_version: huitacademictechnology_fas-jupyter-bst282_sha-a278647.sif
   custom_reservation: null
   envscript: null
   bc_account:
