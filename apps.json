@@ -75,7 +75,18 @@
             "memory": {
                 "value": 16
             }
-        }
+        },
+		{
+			"app_name": "fas-jupyter-bst282",
+			"title": "Jupyter Notebook - BST 282",
+			"docker_image": "",
+			"cpu": {
+				"value": 2
+			},
+			"memory": {
+				"value": 4
+			}
+		}
     ],
     "base": {
         "app_type": "jupyter",
