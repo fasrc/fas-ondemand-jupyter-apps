@@ -1,5 +1,5 @@
 ---
-name: Jupyter Notebook - Eng Sci 201
+name: Jupyter Notebook - General
 cluster: "academic"
 attributes:
   modules: null
