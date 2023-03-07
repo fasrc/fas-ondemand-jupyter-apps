@@ -1,0 +1,12 @@
+numpy
+astropy
+ephem
+networkx
+sgp4
+geopy
+matplotlib
+statsmodels
+cartopy
+dms2dec
+git+https://github.com/snkas/exputilpy.git@v1.6
+git+https://github.com/snkas/networkload.git@v1.3
